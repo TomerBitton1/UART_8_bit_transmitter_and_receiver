@@ -1,0 +1,18 @@
+# Simulate the testbench
+vsim -gui work.UART_TB
+
+# Add waveform signals
+add wave -divider "Inputs:"
+add wave -label "Clock" -color "blue" clk
+add wave -label "Begin Transmission" -color "purple" start
+add wave -label "Transmitted Data" -color "cyan" txin
+
+add wave -divider "Outputs:"
+add wave -label "Received Data" -color "white" rxout
+add wave -label "TX/RX Data Line" -color "orange" txrx
+add wave -label "Counter" -color "Green" i
+add wave -label "Transmission Complete" -color "magenta" txdone
+add wave -label "Reception Complete" -color "magenta" rxdone
+
+# Running for 2400000 ps to observe two different transmitted data signals
+run 2400000 ps
